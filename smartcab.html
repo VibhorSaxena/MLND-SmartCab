@@ -16350,12 +16350,12 @@ gg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>1) I tried several variations of decaying functions mentioned above and finally settled for the decay function cos(at) but takign the absolute sign of cos function is important in order to avoid it alternating nature.
-2) It took around 160 trials for the agent before testing.
-3) I used a tolerance of 0.001 and alpha of 0.01 before reaching the desired results. I needed a low level of tolerance in order for the algo to have sufficient number of trials and the alpha of around 0.01 is just enough to give it around 100-200 trials so I went ahead with it. Like setting the learning rate in neural networks, the policy followed here was to start from 0.00001 and trying its multiples of 3 like 0.00001, 0.000003, 0.0001, 0.003, 0.01 etc.
-4) The Q-learner is much better. Both the ratings are A now. The frequency of bad actions is lower than 0.05 and accidents are nearly zero. The reliability of the system is also around 90%.
-5) It seems that the Q-learner seem to be learning the appropriate policy.
-6) Since we have a rating of A for both safety and reliability, I am satisfied with the smartcab.</p>
+<p>1) I tried several variations of decaying functions mentioned above and finally settled for the decay function cos(at) but takign the absolute sign of cos function is important in order to avoid it alternating nature.</p>
+<p>2) It took around 160 trials for the agent before testing.</p>
+<p>3) I used a tolerance of 0.001 and alpha of 0.01 before reaching the desired results. I needed a low level of tolerance in order for the algo to have sufficient number of trials and the alpha of around 0.01 is just enough to give it around 100-200 trials so I went ahead with it. Like setting the learning rate in neural networks, the policy followed here was to start from 0.00001 and trying its multiples of 3 like 0.00001, 0.000003, 0.0001, 0.003, 0.01 etc.</p>
+<p>4) The Q-learner is much better. Both the ratings are A now. The frequency of bad actions is lower than 0.05 and accidents are nearly zero. The reliability of the system is also around 90%.</p>
+<p>5) It seems that the Q-learner seem to be learning the appropriate policy.</p>
+<p>6) Since we have a rating of A for both safety and reliability, I am satisfied with the smartcab.</p>
 
 </div>
 </div>
@@ -16387,8 +16387,8 @@ gg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <p>Few examples are obvious while driving:-</p>
-<p>1) If there is no vehicle on left or oncoming and you are going forward and then there is a green light, go forward.
-1) If there is a vehicle on the left but there is no oncoming vehicle and you are going forward and then there is a green light, go forward.</p>
+<p>1) If there is no vehicle on left or oncoming and you are going forward and then there is a green light, go forward.</p>
+<p>2) If there is a vehicle on the left but there is no oncoming vehicle and you are going forward and then there is a green light, go forward.</p>
 <p>There are recorded in the text file as well:-</p>
 <p>forward_green_None_None
  -- forward : 1.15
