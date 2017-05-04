@@ -45,7 +45,7 @@ class LearningAgent(Agent):
             self.alpha = 0.0
         else:
             self.t += 1.0
-            self.epsilon = math.fabs(math.cos(self.alpha*self.t))
+            self.epsilon = 1.0/math.pow(self.t,1.2)
 
         return None
 
@@ -100,7 +100,7 @@ class LearningAgent(Agent):
         # If it is not, create a new dictionary for that state
         #   Then, for each action available, set the initial Q-value to 0.0
         if self.learning:
-            self.Q[state] = self.Q.get(state, {None:0.0, 'forward':0.0, 'left':0.0, 'right':0.0})
+            self.Q[state] = self.Q.get(state, {None:0.0, 'right':0.0, 'left':0.0, 'forward':0.0})
 
         return
 
@@ -130,7 +130,6 @@ class LearningAgent(Agent):
                 for act in self.Q[state]:
                     if maxQ == self.Q[state][act]:
                         valid_actions.append(act)
-                print (valid_actions)        
                 action = random.choice(valid_actions)            
         else:
             action = random.choice(self.valid_actions)
@@ -148,7 +147,7 @@ class LearningAgent(Agent):
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         if self.learning:
-            self.Q[state][action] = self.Q[state][action] + self.alpha*(reward-self.Q[state][action])
+            self.Q[state][action] += self.alpha*(reward-self.Q[state][action])
 
         return
 
@@ -185,7 +184,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent, learning=True, epsilon=1.0, alpha=0.01)
+    agent = env.create_agent(LearningAgent, learning=True, epsilon=1.0, alpha=0.7)
     
     ##############
     # Follow the driving agent
