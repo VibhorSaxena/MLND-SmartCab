@@ -66,9 +66,7 @@ class LearningAgent(Agent):
         # When learning, check if the state is in the Q-table
         #   If it is not, create a dictionary in the Q-table for the current 'state'
         #   For each action, set the Q-value for the state-action pair to 0
-
-        
-        state = ('None' if waypoint is None else str(waypoint)) + "_" + inputs['light'] + "_" + ('None' if inputs['left'] is None else str(inputs['left'])) + "_" + ('None' if inputs['oncoming'] is None else str(inputs['oncoming']))
+        state = (waypoint, inputs['light'], inputs['left'], inputs['oncoming'])
         if self.learning:
             self.Q[state] = self.Q.get(state, {None:0.0, 'forward':0.0, 'left':0.0, 'right':0.0})
         return state
@@ -83,10 +81,7 @@ class LearningAgent(Agent):
         ###########
         # Calculate the maximum Q-value of all actions for a given state
         # preset an initialization value that should be replaced by a more valid Q value in the loop.
-        maxQ = -999999.0
-        for action in self.Q[state]:
-            if maxQ < self.Q[state][action]:
-                maxQ = self.Q[state][action]
+        maxQ = max(self.Q[state].values())
         return maxQ
 
 
